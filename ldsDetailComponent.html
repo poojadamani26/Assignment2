@@ -1,0 +1,28 @@
+<template>
+    <div class="slds-box slds-theme_default">
+        <template if:true={selectedRecId}>
+            <div class="slds-float_right">
+                <lightning-button
+                        class="slds-m-top_small"
+                        variant="Neutral"
+                        type="submit"
+                        name="Edit"
+                        label="Edit"
+                        onclick={handleEditClick}>
+                </lightning-button>
+            </div>
+            <br><br>
+            <lightning-record-form
+                record-id={selectedRecId}
+                object-api-name=Account
+                fields={fields}
+                columns="1"
+                mode={changeMode}
+                onsuccess={handleSuccess}
+                oncancel={handleCancel}>
+                <lightning-messages>
+                </lightning-messages>    
+            </lightning-record-form>
+        </template>
+    </div>
+</template>
